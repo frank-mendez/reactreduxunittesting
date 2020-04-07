@@ -18,3 +18,15 @@ it('has a textarea and a button', () => {
   expect(wrapped.find('textarea').length).toEqual(1);
   expect(wrapped.find('button').length).toEqual(1);
 });
+
+// Check if textarea is wired up correctly with event target
+// Find the textarea element
+// Simulate a 'change' event
+// Provide fake event object
+// Force the component to update
+// Assert that the textareas value has changed
+it('has a textarea that users can type in', () => {
+  wrapped.find('textarea').simulate('change', {
+    target: { value: 'new comment' },
+  });
+});
