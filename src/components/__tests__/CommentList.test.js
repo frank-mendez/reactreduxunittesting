@@ -18,4 +18,12 @@ beforeEach(() => {
   );
 });
 
-it('creates one LI per comment', () => {});
+it('creates one LI per comment', () => {
+  expect(wrapped.find('li').length).toEqual(2);
+});
+
+it('shows the text for each comment', () => {
+  //console.log(wrapped.render().text());
+  expect(wrapped.render().text()).toContain('Comment 1');
+  expect(wrapped.render().text()).toContain('Comment 2');
+});
