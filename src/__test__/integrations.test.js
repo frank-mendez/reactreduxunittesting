@@ -9,4 +9,8 @@ it('can fetch a list of comments and display them', () => {
       <App />
     </Root>
   );
+
+  wrapped.find('.fetch-comments').simulate('click');
+
+  expect(wrapped.find('li').length).toEqual(500);
 });
