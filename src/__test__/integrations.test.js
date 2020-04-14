@@ -1,7 +1,20 @@
 import React from 'react';
+import moxios from 'moxios';
 import { mount } from 'enzyme';
 import Root from 'Root';
 import App from 'components/App';
+
+beforeEach(() => {
+  moxios.install();
+  moxios.stubRequest('http://jsonplaceholder.typicode.com/comments', {
+    status: 200,
+    response: [{ name: 'Featched #1' }, { name: 'Fetch #2' }],
+  });
+});
+
+afterEach(() => {
+  moxios.uninstall();
+});
 
 it('can fetch a list of comments and display them', () => {
   const wrapped = mount(
