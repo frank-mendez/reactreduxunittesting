@@ -13,7 +13,8 @@ class CommentBox extends Component {
 
   loggedIn() {
     if (!this.props.auth) {
-      console.log('not authenticated');
+      //console.log('not authenticated');
+      this.props.history.push('/');
     }
   }
 
